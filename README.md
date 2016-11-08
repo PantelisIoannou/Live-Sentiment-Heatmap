@@ -3,7 +3,7 @@
 You can run this on your own if you have Node.js installed.
 
 1. Clone the repository
-2. Install the dependencies:
+2. Install the dependencies(node 4.6.1):
 
         npm install
 3. Run the server using your Twitter application credentials:    
