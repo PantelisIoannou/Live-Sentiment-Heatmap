@@ -188,6 +188,14 @@ module.controller('MapController', function($scope, GoogleMap, socket){
 			(!keyword || keyword.length === 0 
 				|| tweet.text.toLowerCase().indexOf(keyword.toLowerCase()) > -1))
 		{
+			var icon = null;
+			if(tweet.sentiment.score < 0)
+				icon = '../res/img/marker-red.png';
+			if(tweet.sentiment.score == 0)
+				icon = '../res/img/marker-yellow.png';
+			if(tweet.sentiment.score > 0)
+				icon = '../res/img/marker-green.png';
+			
 			
 
 
@@ -196,7 +204,8 @@ module.controller('MapController', function($scope, GoogleMap, socket){
 	          	title: '@' + tweet.user.name,
 	         	position: new google.maps.LatLng(tweet.coordinates.coordinates[1], tweet.coordinates.coordinates[0]),
 	          	draggable: false,
-	         	animation: google.maps.Animation.DROP
+	         	animation: google.maps.Animation.DROP,
+				icon: icon
 	      	}); 
 	      	marker.setMap(GoogleMap);
 	      	markers.push(marker);
