@@ -133,7 +133,7 @@ var Application = function(){
 	var self = this;
 
 	self.Initialize = function(){
-		self.ip        = process.env.OPENSHIFT_NODEJS_IP || '10.135.14.226';
+		self.ip        = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
         self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 		var app = express();
