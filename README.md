@@ -1,6 +1,6 @@
 #Twitter Visualization(HeatMap and Sentiment Analysis)
 
-####Pantelis Ioannou---AM: P2012029
+###Pantelis Ioannou---AM: P2012029
 
 
 ##Aim of the Project
