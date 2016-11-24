@@ -1,10 +1,10 @@
 #Twitter Visualization(HeatMap and Sentiment Analysis)
 
-####Παντελής Ιωάννου---ΑΜ: P2012029
+####Pantelis Ioannou---AM: P2012029
 
 
-##Περιγραφή Εργασίας
-Η εργασία με την οποία ασχολούμαι αφορά την δημιουργία ενός χάρτη(heat map),ο οποίος θα απεικονίζει με bullets τα tweets με γεωγραφικές πληροφορίες πάνω στον χάρτη.Επιπλέον με την χρήση μιας βιβλιοθήκης,θα απεικονίζει τα tweets με συγκεκριμένο χρώμα(πράσινο-κίτρινο-κόκκινο) ανάλογα με το προφίλ του tweet. Π.χ. αν ένα tweet είναι για να ενημερώσει για ενδεχόμενο άσχημο καιρό τότε θα είναι κόκκινο,αν είναι ουδέτερο κίτρινο και αν ένα tweet για ένα χαρούμενο γεγονός πράσινο.Τέλος ο χρήστης της εφαρμογής θα έχει την δυνατότητα να μέσω search bar να ελέγχει τα tweets για συγκεκριμένου τύπου tweet,όπως αυτά που περιέχουν καιρικές πληροφορίες(λέξη αναζήτησης wind,ή οτιδήποτε άλλο),με την βοήθεια του search bar.
+##Aim of the Project
+The aim of this project is to create a google map,which visualizes real-time global tweets,based on geolocation's informations.The tweets are being diplayed on the map using emtoticons(positive,neutral,negative).For example,if a tweets is about a warning for bad weather,it will be displayed with a negative emoticon.Furthermore,the user can choose from the search bar,specific tweets,based on words(like weather,rain,money.)
 
 ####Τεχνικά Χαρακτηστικά Εργασίας:
 Το προγραμματιστικό κομμάτι της εργασίας χωρίζεται σε δυο κύρια κομμάτια.Το πρώτο αφορά το backend της εφαρμογής με server.js και το fronted με το φάκελο client αλλά και το index.html.
