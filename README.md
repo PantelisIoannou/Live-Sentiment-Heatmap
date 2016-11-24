@@ -6,7 +6,7 @@
 ##Aim of the Project
 The aim of this project is to create a google map,which visualizes real-time global tweets,based on geolocation's informations.The tweets are being diplayed on the map using emtoticons(positive,neutral,negative).For example,if a tweets is about a warning for bad weather,it will be displayed with a negative emoticon.Furthermore,the user can choose from the search bar,specific tweets,based on words(like weather,rain,money.)
 
-###Features of the project:
+##Features of the project:
 The main components of the project is the frontend and the backnend.The first part is the backend of the application with server.js and the fronted based on client folder,which includes index.html.
 Especially the server.js uses some modules which makes it able to connect with the Twitter App Stream(twit),to create the server and to check,which tweets have geolocation informations.
 Από την άλλη για να καταφέρουν τα δεδομένα να προβληθούν στον browser(πάνω στο χάρτη),ο server ανοίγει ένα socket με την βοήθεια μιας βιβλιοθήκης για να καταφέρει να πάρει τα δεδομένα από τον server.
