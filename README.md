@@ -19,7 +19,7 @@ The main differences with my application are the use of google maps and some Jav
 
 
 
-####Αλλαγές από τον κώδικα που παραδειγματίστηκα:
+####Main replacements from the origin source code:
 
 1)Ρeplacement of the module,which connects to Twitter App Stream.
 
