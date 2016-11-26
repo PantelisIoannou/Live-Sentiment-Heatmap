@@ -23,15 +23,15 @@ The main differences with my application are the use of google maps and some Jav
 
 ####Αλλαγές από τον κώδικα που παραδειγματίστηκα:
 
-1)Αλλαγή του module που συνδέεται στο twitter app stream.
+1)Ρeplacement of the module,which connects to Twitter App Stream.
 
-2)Αλλαγή χάρτη google maps και ειδικό customization.
+2)Replacement of the leaflet map with google maps and special customization.
 
-3)Αλλαγή της βιβίοθήλης leaflet η οποία δεν ταιριάζει στο data rate του twitter app stream.
+3)Replacement of leaflet's library,which doesn't suit to twitter app stream.
 
-4)Προσθήκη βιβλιοθηκών angular για την απεικόνιση των σημείων.
+4)Import new Angular libraries for displaying marks.
 
-5)Προσθήκη module sentiment analysis και σύδνεση του με τον κώδικα του server.js
+5)Import module Sentiment Analysis.
 
 
 
