@@ -1,5 +1,5 @@
 #MoodTrack
-#Twitter Visualization(HeatMap and Sentiment Analysis)
+##Twitter Visualization(HeatMap and Sentiment Analysis)
 
 ###Pantelis Ioannou---AM: P2012029
 
