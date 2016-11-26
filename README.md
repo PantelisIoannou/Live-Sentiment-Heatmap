@@ -30,6 +30,8 @@ The main differences with my application are the use of google maps and some Jav
 5)Import module Sentiment Analysis.
 
 
+![Image](https://github.com/PantelisIoannou/images/blob/master/Thesis1.png)
+
 
 
 
