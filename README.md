@@ -13,8 +13,8 @@ To be able to display the tweets on the map,the server uses a module called(sock
 
 The application can have access the Twitter's data through the twitter api stream and after the user has already import the passwords from Twitter App Management(Consumer Key,Consumer Secret,Acess Token,Acess Token Secret).
 
-Για την εργασία μου παραδειγματίστηκα,από μια εφαρμογή ανοικτού κώδικα στο github.Ονομάζεται TweetOMap και μπορεί να βρεθεί στην διεύθυνση: https://github.com/tomsoft1/TweetOMap.
-Οι βασικές διαφορές με την δικιά μου online εφαρμογή εντοπίζονται στην αλλαγή του χάρτη και ορισμένων βιβλιοθηκών Javascript,μετά από εκτενή αναζήτηση στο διαδίκτυο.Επειδή η εφαρμογή από το github προσπαθεί να απεικονίσει ένα χάρτη heatmap,ενώ η δικιά μου και να απεικονίσει τον χάρτη αλλά και να κάνει ένα παράλληλο έλεγχο,έτσι ώστε να απεικονίσει tweets με βάση συγκεκριμένη λέξη αλλά και σε μια κλίμακα από αρνητικό,ουδέτερο και θετικό tweet.
+To be able to make the app,I studied an app from Github.It's name is TweetOMap and it can be found on: https://github.com/tomsoft1/TweetOMap.
+The main differences with my application are the use of google maps and some Javascript's libraries,after extensive search on Internet.Επειδή η εφαρμογή από το github προσπαθεί να απεικονίσει ένα χάρτη heatmap,ενώ η δικιά μου και να απεικονίσει τον χάρτη αλλά και να κάνει ένα παράλληλο έλεγχο,έτσι ώστε να απεικονίσει tweets με βάση συγκεκριμένη λέξη αλλά και σε μια κλίμακα από αρνητικό,ουδέτερο και θετικό tweet.
 Ο βασικός προβληματισμός μου,ο οποίος με έκανε να αλλάξω τους χάρτες και την βιβλιοθήκη(leaflet),ήταν ότι τα tweets,μετά από ένα χρονικό διάστημα εξασθενούσαν,με αποτέλεσμα να μην αποτυπώνεται ένας σωστός χάρτης.Και αυτό επειδή,οι χάρτες λογικά λειτουργούν με μεγαλύτερο data rate,από τα tweets που έχει πρόσβαση μια εφαρμογή,εξαιτίας του Twitter Api Rate Limits.
 
 ![Image](https://github.com/PantelisIoannou/Multipro/blob/master/images/sentimentmap.PNG)
