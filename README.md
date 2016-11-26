@@ -13,7 +13,7 @@ To be able to display the tweets on the map,the server uses a module called(sock
 The application can have access the Twitter's data through the twitter api stream and after the user has already import the passwords from Twitter App Management(Consumer Key,Consumer Secret,Acess Token,Acess Token Secret).
 
 To be able to make the app,I studied an app from Github.It's name is TweetOMap and it can be found on: https://github.com/tomsoft1/TweetOMap.
-The main differences with my application are the use of google maps and some Javascript's libraries,after extensive search on Internet.The main difference of MoodTrack from the initial application from Github is that the second tries to display a heatmap,while my App tries to make a heatmap with emoticons and gives the ability to the user to display tweets,based only in a specific word. προβληματισμός μου,ο οποίος με έκανε να αλλάξω τους χάρτες και την βιβλιοθήκη(leaflet),ήταν ότι τα tweets,μετά από ένα χρονικό διάστημα εξασθενούσαν,με αποτέλεσμα να μην αποτυπώνεται ένας σωστός χάρτης.Και αυτό επειδή,οι χάρτες λογικά λειτουργούν με μεγαλύτερο data rate,από τα tweets που έχει πρόσβαση μια εφαρμογή,εξαιτίας του Twitter Api Rate Limits.
+The main differences with my application are the use of google maps and some Javascript's libraries,after extensive search on Internet.The main difference of MoodTrack from the initial application from Github is that the second tries to display a heatmap,while my App tries to make a heatmap with emoticons and gives the ability to the user to display tweets,based only in a specific word. The main reason,which made me to change the initial map and the libraries was the data rate of tweets,and the fact that after a short time the displayed tweets weakend on the map.
 
 
 
