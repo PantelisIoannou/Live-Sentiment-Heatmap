@@ -17,7 +17,6 @@ To be able to make the app,I studied an app from Github.It's name is TweetOMap a
 The main differences with my application are the use of google maps and some Javascript's libraries,after extensive search on Internet.Επειδή η εφαρμογή από το github προσπαθεί να απεικονίσει ένα χάρτη heatmap,ενώ η δικιά μου και να απεικονίσει τον χάρτη αλλά και να κάνει ένα παράλληλο έλεγχο,έτσι ώστε να απεικονίσει tweets με βάση συγκεκριμένη λέξη αλλά και σε μια κλίμακα από αρνητικό,ουδέτερο και θετικό tweet.
 Ο βασικός προβληματισμός μου,ο οποίος με έκανε να αλλάξω τους χάρτες και την βιβλιοθήκη(leaflet),ήταν ότι τα tweets,μετά από ένα χρονικό διάστημα εξασθενούσαν,με αποτέλεσμα να μην αποτυπώνεται ένας σωστός χάρτης.Και αυτό επειδή,οι χάρτες λογικά λειτουργούν με μεγαλύτερο data rate,από τα tweets που έχει πρόσβαση μια εφαρμογή,εξαιτίας του Twitter Api Rate Limits.
 
-![Image](https://github.com/PantelisIoannou/Multipro/blob/master/images/sentimentmap.PNG)
 
 Ο αρχικός πηγαίο κώδικα της εργασίας μου είνα αυτός: https://github.com/PantelisIoannou/Live-Sentiment-Heatmap
 
