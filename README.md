@@ -31,6 +31,7 @@ The main differences with my application are the use of google maps and some Jav
 
 
 ![Image](https://github.com/PantelisIoannou/images/blob/master/Thesis1.png)
+![Image](https://github.com/PantelisIoannou/images/blob/master/Thesis2.png)
 
 
 
