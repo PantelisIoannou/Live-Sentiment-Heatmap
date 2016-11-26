@@ -1,8 +1,6 @@
 #MoodTrack
 ##Twitter Visualization(HeatMap and Sentiment Analysis)
 
-###Pantelis Ioannou---AM: P2012029
-
 
 ##Aim of the Project
 The aim of this project is to create a google map,which visualizes real-time global tweets,based on geolocation's informations.The tweets are being diplayed on the map using emtoticons(positive,neutral,negative).For example,if a tweets is about a warning for bad weather,it will be displayed with a negative emoticon.Furthermore,the user can choose from the search bar,specific tweets,based on words(like weather,rain,money.)
