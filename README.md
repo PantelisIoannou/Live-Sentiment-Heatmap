@@ -9,9 +9,9 @@ The aim of this project is to create a google map,which visualizes real-time glo
 ##Features of the project:
 The main components of the project is the frontend and the backnend.The first part is the backend of the application with server.js and the fronted based on client folder,which includes index.html.
 Especially the server.js uses some modules which makes it able to connect with the Twitter App Stream(twit),to create the server and to check,which tweets have geolocation informations.
-Από την άλλη για να καταφέρουν τα δεδομένα να προβληθούν στον browser(πάνω στο χάρτη),ο server ανοίγει ένα socket με την βοήθεια μιας βιβλιοθήκης για να καταφέρει να πάρει τα δεδομένα από τον server.
+To be able to display the tweets on the map,the server uses a module called(socket.io).
 
-Η εφαρμογή αποκτάει πρόσβαση στα δεδομένα του Twitter μέσω του twitter api stream και αφού o χρήστης έχει εισάγει τους μοναδικούς κωδικούς που έχει εκδώσει από το twitter app management(Consumer Key,Consumer Secret,Acess Token,Acess Token Secret).
+The application αποκτάει πρόσβαση στα δεδομένα του Twitter μέσω του twitter api stream και αφού o χρήστης έχει εισάγει τους μοναδικούς κωδικούς που έχει εκδώσει από το twitter app management(Consumer Key,Consumer Secret,Acess Token,Acess Token Secret).
 
 Για την εργασία μου παραδειγματίστηκα,από μια εφαρμογή ανοικτού κώδικα στο github.Ονομάζεται TweetOMap και μπορεί να βρεθεί στην διεύθυνση: https://github.com/tomsoft1/TweetOMap.
 Οι βασικές διαφορές με την δικιά μου online εφαρμογή εντοπίζονται στην αλλαγή του χάρτη και ορισμένων βιβλιοθηκών Javascript,μετά από εκτενή αναζήτηση στο διαδίκτυο.Επειδή η εφαρμογή από το github προσπαθεί να απεικονίσει ένα χάρτη heatmap,ενώ η δικιά μου και να απεικονίσει τον χάρτη αλλά και να κάνει ένα παράλληλο έλεγχο,έτσι ώστε να απεικονίσει tweets με βάση συγκεκριμένη λέξη αλλά και σε μια κλίμακα από αρνητικό,ουδέτερο και θετικό tweet.
