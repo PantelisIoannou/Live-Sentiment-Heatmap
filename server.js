@@ -39,7 +39,7 @@ var TwitterStreamService = function(server){
 		  	});
 		  	socket.on('get-trends', function(){
 		  		console.log(new Date() + ' - Received new event <get-trend>.');
-		  		GetTwitterTrends(socket);
+		  		GetTwitterTrendsLive(socket);
 		  	});
 		  	socket.on('disconnect', function() {
 				console.log(new Date() + ' - A client is disconnected');
@@ -97,7 +97,7 @@ var TwitterStreamService = function(server){
       	console.log(new Date() + " - Initialized twitter streaming.");
 	}
 
-	GetTwitterTrends = function(socket){
+	GetTwitterTrendsLive = function(socket){
 		if(twitter_trends.trends === null || (new Date() - twitter_trends.created_at) > 60000){
 			console.log(new Date() + ' - Retrieving twitter trends.');
 			twitter_api.get(
@@ -134,7 +134,7 @@ var Application = function(){
 
 	self.Initialize = function(){
 		self.ip        = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
-        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 3030;
 
 		var app = express();
 		app.use(express.static(__dirname + '/client'));
