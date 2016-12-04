@@ -1,3 +1,5 @@
+//MoodTrack
+
 var twitter = require('twit');
 var express = require('express');
 var http = require('http');
@@ -36,10 +38,6 @@ var TwitterStreamService = function(server){
 		  		console.log(new Date() + ' - Received new event <start-streaming>.');
 		  		if(twitter_stream === null)
 			    	SetupTwitterStreamCallback(socket);
-		  	});
-		  	socket.on('get-trends', function(){
-		  		console.log(new Date() + ' - Received new event <get-trend>.');
-		  		GetTwitterTrendsLive(socket);
 		  	});
 		  	socket.on('disconnect', function() {
 				console.log(new Date() + ' - A client is disconnected');
@@ -97,32 +95,7 @@ var TwitterStreamService = function(server){
       	console.log(new Date() + " - Initialized twitter streaming.");
 	}
 
-	GetTwitterTrendsLive = function(socket){
-		if(twitter_trends.trends === null || (new Date() - twitter_trends.created_at) > 60000){
-			console.log(new Date() + ' - Retrieving twitter trends.');
-			twitter_api.get(
-				'trends/place',
-				{'id' : 1},
-				function(error, trends, response){
-					if(error){
-						console.log(new Date() + ' - Error when retrieving twitter trends: ' + error);
-						throw error;
-					}
-					console.log(new Date() + ' - Received twitter trends.');
 
-					twitter_trends.created_at = new Date();
-					twitter_trends.trends = trends[0].trends;
-					console.log(new Date() + ' - Updated twitter trends cache.');
-
-					socket.broadcast.emit("new-trends", twitter_trends.trends);
-			        socket.emit('new-trends', twitter_trends.trends);
-				});
-		}
-		else{
-			socket.broadcast.emit("new-trends", twitter_trends.trends);
-			socket.emit('new-trends', twitter_trends.trends);
-		}
-	}
 
 	self.StartService = function(){
 		SetupSocketCallback();
@@ -134,7 +107,7 @@ var Application = function(){
 
 	self.Initialize = function(){
 		self.ip        = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
-        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 3030;
+        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 		var app = express();
 		app.use(express.static(__dirname + '/client'));

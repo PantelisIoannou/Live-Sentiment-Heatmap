@@ -1,12 +1,12 @@
 {
-  "name": "server",
+  "name": "serverTwitter",
   "version": "1.0.0",
-  "description": "This is the server that receives twitter streaming and pushes to clients.",
+  "description": "This is the server that receives twitter and display them on the map.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "author": "Weiliang(Will) Wang",
+  "author": "Pantelis Ioannou",
   "repository": "",
   "license": "ISC",
   "dependencies": {
