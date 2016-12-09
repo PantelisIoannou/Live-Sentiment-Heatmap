@@ -1,34 +1,31 @@
 //MoodTrack
 
-var twitter = require('twit');
-var express = require('express');
-var http = require('http');
-var socketio = require('socket.io');
-var sentiment = require('sentiment');
+var twitter_app = require('twit');
+var express_app = require('express');
+var http_app = require('http');
+var socketio_app = require('socket.io');
+var sentiment_app = require('sentiment');
 
-var TwitterStreamService = function(server){
+var getTweets = function(server){
 	var self = this;
-	var io = socketio(server);
+	var io = socketio_app(server);
 	var clientCount = 0;
 
-	var twitter_stream = null;
-	var twitter_trends = {
-		'created_at': null,
-		'trends': null
-	};
+	var twitter_live_stream = null;
+	
 	var twitter_api = 
-			new twitter({
+			new twitter_app({
 				consumer_key:    'lq28gDTCT1RC49i73uG3hGjzp',
 				consumer_secret: 'dC2pvHoxChsQaVHw80rYUzsaip0TzBcIYKXSAqcFTVjIzVl8Ne',
 				access_token:    	'787308845890756608-Oj4gY2DxhXvX3lKv76nLMykGHnkBkuV',
 				access_token_secret:'EMTGKB3J6NrHpkXq13Zg96B6rkNUZPuIHkgkGKAEbRfdX'
 			});
 
-	var SetupSocketCallback = function(){
+	var SetupSocketCallback_Thesis = function(){
 		io.on('connection', function (socket) {
 			console.log(new Date() + ' - A new client is connected.');
-			if(twitter_stream !== null && clientCount === 0){
-				twitter_stream.start();
+			if(twitter_live_stream !== null && clientCount === 0){
+				twitter_live_stream.start();
 				console.log(new Date() + ' - Restarted streaming.');
 			}
 			clientCount ++;
@@ -36,59 +33,59 @@ var TwitterStreamService = function(server){
 
 		  	socket.on('start-streaming', function() {
 		  		console.log(new Date() + ' - Received new event <start-streaming>.');
-		  		if(twitter_stream === null)
-			    	SetupTwitterStreamCallback(socket);
+		  		if(twitter_live_stream === null)
+			    	SetupCallback(socket);
 		  	});
 		  	socket.on('disconnect', function() {
 				console.log(new Date() + ' - A client is disconnected');
 				clientCount --;
 				if(clientCount < 1){
-					twitter_stream.stop();
+					twitter_live_stream.stop();
 					console.log(new Date() + ' - All clients are disconnected. Stopped streaming.');
 				}
 			});
 		});
 	}
 
-	SetupTwitterStreamCallback = function(socket){
-      	twitter_stream = twitter_api.stream(
+	SetupCallback = function(socket){
+      	twitter_live_stream = twitter_api.stream(
       		'statuses/filter', 
       		{'locations':'-180,-90,180,90', 'language':'en'});
 
-      	twitter_stream.on('tweet', function(tweet) {
+      	twitter_live_stream.on('tweet', function(tweet) {
       		//console.log(new Date() + ' - Received new tweet.');
           	if (tweet.coordinates && tweet.coordinates !== null){
-          		tweet.sentiment = sentiment(tweet.text);
+          		tweet.sentiment = sentiment_app(tweet.text);
               	socket.broadcast.emit("new-tweet", tweet);
               	socket.emit('new-tweet', tweet);
           	}
          });
 
-      	twitter_stream.on('error', function(error) {
+      	twitter_live_stream.on('error', function(error) {
       		console.log(new Date() + ' - Twitter stream error: %j', error);
       		socket.broadcast.emit("stream-error");
           	socket.emit('stream-error');
 		});
 
-      	twitter_stream.on('connect', function(request) {
+      	twitter_live_stream.on('connect', function(request) {
 		    console.log(new Date() + ' - Connected to Twitter stream API.');
 		});
 
-		twitter_stream.on('reconnect', function (request, response, connectInterval) {
+		twitter_live_stream.on('reconnect', function (request, response, connectInterval) {
 		  	console.log(new Date() + ' - Trying to reconnect to Twitter stream API in ' + connectInterval + ' ms.');
 		});
 
-      	twitter_stream.on('limit', function(limitMessage) {
+      	twitter_live_stream.on('limit', function(limitMessage) {
         	console.log(new Date() + ' - Twitter stream limit error: %j', limitMessage);
         	socket.broadcast.emit("stream-limit");
           	socket.emit('stream-limit');
       	});
 
-      	twitter_stream.on('warning', function(warningMessage) {
+      	twitter_live_stream.on('warning', function(warningMessage) {
        	 	console.log(new Date() + ' - Twitter stream warning: %j', warningMessage);
       	});
 
-      	twitter_stream.on('disconnect', function(disconnectMessage) {
+      	twitter_live_stream.on('disconnect', function(disconnectMessage) {
         	console.log(new Date() + ' - Disconnected to Twitter stream API.');
       	});
 
@@ -97,28 +94,28 @@ var TwitterStreamService = function(server){
 
 
 
-	self.StartService = function(){
-		SetupSocketCallback();
+	self.StartService_Thesis = function(){
+		SetupSocketCallback_Thesis();
 	}
 }
 
-var Application = function(){
+var Application_Thesis = function(){
 	var self = this;
 
 	self.Initialize = function(){
 		self.ip        = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
         self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
-		var app = express();
-		app.use(express.static(__dirname + '/client'));
-		self.server = http.Server(app);
+		var app_thesis = express_app();
+		app_thesis.use(express_app.static(__dirname + '/fronted'));
+		self.server = http_app.Server(app_thesis);
 
 		startTwitterStreamService();
 	};
 
 	var startTwitterStreamService = function(){
-		var twitterStreamService = new TwitterStreamService(self.server);
-		twitterStreamService.StartService();
+		var twitterService = new getTweets(self.server);
+		twitterService.StartService_Thesis();
 	};
 
 	self.Start = function(){
@@ -128,6 +125,6 @@ var Application = function(){
 	};
 }
 
-var app = new Application();
-app.Initialize();
-app.Start();
+var app_thesis = new Application_Thesis();
+app_thesis.Initialize();
+app_thesis.Start();
