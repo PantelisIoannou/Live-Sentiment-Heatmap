@@ -26,7 +26,7 @@ module.factory('socket', function($rootScope){
 module.factory('GoogleMap', function(){
     
     var mapZoom = 2;
-    var centerLng = -10;
+    var centerLng = 5;
 
     var mapOptions = {
 		center: {lat: 20, lng: centerLng},
