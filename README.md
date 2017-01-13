@@ -1,4 +1,4 @@
-#MoodTrack---- << Under Construction >>
+#MoodTrack
 ##Twitter Visualization(HeatMap and Sentiment Analysis)
 
 
