@@ -32,16 +32,16 @@ var getTweets = function(server){
 			socket.emit("connected");
 
 		  	socket.on('start-streaming', function() {
-		  		console.log(new Date() + ' - Received new event <start-streaming>.');
+		  		console.log(new Date() + ' -New event <start-streaming>.');
 		  		if(twitter_live_stream === null)
 			    	SetupCallback(socket);
 		  	});
 		  	socket.on('disconnect', function() {
-				console.log(new Date() + ' - A client is disconnected');
+				console.log(new Date() + ' - Disconnected client');
 				clientCount --;
 				if(clientCount < 1){
 					twitter_live_stream.stop();
-					console.log(new Date() + ' - All clients are disconnected. Stopped streaming.');
+					console.log(new Date() + ' - All clients are disconnected.');
 				}
 			});
 		});
