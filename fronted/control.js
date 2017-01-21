@@ -156,26 +156,26 @@ module.factory('GoogleMap', function(){
 });
 
 module.controller('MapController', function($scope, GoogleMap, socket){
-	var keyword = null;
-	var markers = [];
-	$scope.showLimitMessage = false;
-	$scope.keyword = null;
-	$scope.stopBtnValue = 'Stop';
+	var searchkey = null;
+	var label = [];
+	$scope.showboundMessa = false;
+	$scope.searchkey = null;
+	$scope.buttonFinish = 'Stop';
 	$scope.trends = [];
 
 	$scope.RestartBtnClick = function(){
-		for (var i = 0; i < markers.length; i++) {
-            markers[i].setMap(null);
+		for (var i = 0; i < label.length; i++) {
+            label[i].setMap(null);
         }
-        markers = [];
-		keyword = $scope.keyword.trim();
+        label = [];
+		searchkey = $scope.searchkey.trim();
 	}
 
 	$scope.StopBtnClick = function(){
-		if($scope.stopBtnValue === 'Stop')
-			$scope.stopBtnValue = 'Continue';
+		if($scope.buttonFinish === 'Stop')
+			$scope.buttonFinish = 'Continue';
 		else
-			$scope.stopBtnValue = 'Stop';
+			$scope.buttonFinish = 'Stop';
 	}
 
 	socket.on('connected', function(){
@@ -183,10 +183,10 @@ module.controller('MapController', function($scope, GoogleMap, socket){
 		socket.emit('get-trends');
 	});
 	socket.on('new-tweet', function(tweet){
-		$scope.showLimitMessage = false;
-		if($scope.stopBtnValue === 'Stop' &&
-			(!keyword || keyword.length === 0 
-				|| tweet.text.toLowerCase().indexOf(keyword.toLowerCase()) > -1))
+		$scope.showboundMessa = false;
+		if($scope.buttonFinish === 'Stop' &&
+			(!searchkey || searchkey.length === 0 
+				|| tweet.text.toLowerCase().indexOf(searchkey.toLowerCase()) > -1))
 		{
 			var icon = null;
 			if(tweet.sentiment.score < 0)
@@ -208,7 +208,7 @@ module.controller('MapController', function($scope, GoogleMap, socket){
 				icon: icon
 	      	}); 
 	      	marker.setMap(GoogleMap);
-	      	markers.push(marker);
+	      	label.push(marker);
 
 	      	var info = '<div class="row text-center tweet-info-window">'
 	      				+	'<div class="col-md-2 text-center">' 
@@ -240,6 +240,6 @@ module.controller('MapController', function($scope, GoogleMap, socket){
 	});
 
 	socket.on('stream-error', function(){
-		$scope.showLimitMessage = true;
+		$scope.showboundMessa = true;
 	});
 });
