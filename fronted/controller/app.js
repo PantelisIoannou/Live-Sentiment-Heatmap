@@ -190,11 +190,11 @@ module.controller('MapController', function($scope, GoogleMap, socket){
 		{
 			var icon = null;
 			if(tweet.sentiment.score < 0)
-				icon = '../res/img/negativemoticon.png';
+				icon = '/icon/negativemoticon.png';
 			if(tweet.sentiment.score == 0)
-				icon = '../res/img/neutralemoticon.png';
+				icon = '/icon/neutralemoticon.png';
 			if(tweet.sentiment.score > 0)
-				icon = '../res/img/positivemoticon.png';
+				icon = '/icon/positivemoticon.png';
 			
 			
 
