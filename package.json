@@ -2,9 +2,9 @@
   "name": "MoodTrack",
   "version": "1",
   "description": "This is the server that receives twitter and display them on the map.",
-  "main": "server.js",
+  "main": "tweet.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node tweet.js"
   },
   "author": "Pantelis Ioannou",
   "repository": "https://github.com/PantelisIoannou/Multimedia",
