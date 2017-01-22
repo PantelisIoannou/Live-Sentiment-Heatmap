@@ -1,6 +1,6 @@
 {
   "name": "MoodTrack",
-  "version": "1",
+  "version": "1.0.0",
   "description": "This is the server that receives twitter and display them on the map.",
   "main": "tweet.js",
   "scripts": {
