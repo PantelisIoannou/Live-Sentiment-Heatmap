@@ -161,7 +161,6 @@ module.controller('MapController', function($scope, GoogleMap, socket){
 	$scope.showboundMessa = false;
 	$scope.searchkey = null;
 	$scope.buttonFinish = 'Stop';
-	$scope.trends = [];
 
 	$scope.RestartBtnClick = function(){
 		for (var i = 0; i < label.length; i++) {
@@ -180,7 +179,6 @@ module.controller('MapController', function($scope, GoogleMap, socket){
 
 	socket.on('connected', function(){
 		socket.emit('start-streaming');
-		socket.emit('get-trends');
 	});
 	socket.on('new-tweet', function(tweet){
 		$scope.showboundMessa = false;
@@ -197,8 +195,6 @@ module.controller('MapController', function($scope, GoogleMap, socket){
 				icon = '/icon/positivemoticon.png';
 			
 			
-
-
 	      	var marker = new google.maps.Marker({
 	         	map: GoogleMap,
 	          	title: '@' + tweet.user.name,
@@ -233,13 +229,5 @@ module.controller('MapController', function($scope, GoogleMap, socket){
 	        	infowindow.open(GoogleMap, marker);
 	      	});
       	}
-	});
-
-	socket.on('new-trends', function(trends){
-		$scope.trends = trends;
-	});
-
-	socket.on('stream-error', function(){
-		$scope.showboundMessa = true;
 	});
 });

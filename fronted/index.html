@@ -6,25 +6,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="map.css">
-		
-
 <script type="text/javascript" src="lib/jquery.min.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNc0dmlvo53X4djeek5mOLB3Q0ETqCg7w"></script>
 <script type="text/javascript" src="lib/angular.min.js"></script>
 <script type="text/javascript" src="lib/angular-animate.min.js"></script>
 <script type="text/javascript" src="lib/socket.io.js"></script>
 <script type="text/javascript" src="control.js"></script>
-
-
-
 <style>
-
-<script>
-$(window).on('beforeunload', function(){
-  $(window).scrollTop(0);
-});
-</script>
-
 
 
 body {font-family: "Lato", sans-serif}
@@ -35,15 +23,15 @@ body {font-family: "Lato", sans-serif}
 <!-- Navbar -->
 <div class="w3-top">
 <ul class="w3-navbar w3-black w3-card-2 w3-left-align">
-  <li><a href="#" class="w3-hover-none w3-hover-text-grey w3-padding-large">HOME</a></li>
-  <li class="w3-hide-small"><a href="#band" class="w3-padding-large">INFO</a></li>
+<li><a href="#" class="w3-hover-none w3-hover-text-grey w3-padding-large">HOME</a></li>
+<li class="w3-hide-small"><a href="#band" class="w3-padding-large">INFO</a></li>
   
-  <div class="input-group w3-right"> 
-	<input class="form-control" type="text" placeholder="searchkey" ng-model="searchkey"/>
-	<span class="input-group-btn">
-		<button class="btn btn-info btn-outline" type="submit" ng-click="RestartBtnClick()">Search</button>
-		<button class="btn btn-info btn-outline" type="submit" ng-click="StopBtnClick()">{{buttonFinish}}</button>
-	</span>
+<div class="input-group w3-right"> 
+<input class="form-control" type="text" placeholder="searchkey" ng-model="searchkey"/>
+<span class="input-group-btn">
+	<button class="btn btn-info btn-outline" type="submit" ng-click="RestartBtnClick()">Search</button>
+	<button class="btn btn-info btn-outline" type="submit" ng-click="StopBtnClick()">{{buttonFinish}}</button>
+</span>
 </div>
 </ul>
 </div>
@@ -100,22 +88,8 @@ body {font-family: "Lato", sans-serif}
 <script>
 // Automatic Slideshow - change image every 4 seconds
 var myIndex = 0;
-carousel();
-
 
 document.body.scrollTop = document.documentElement.scrollTop = 0;
-
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}
-    x[myIndex-1].style.display = "block";
-    setTimeout(carousel, 4000);
-}
 
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
@@ -125,14 +99,6 @@ function myFunction() {
     } else {
         x.className = x.className.replace(" w3-show", "");
     }
-}
-
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
 }
 </script>
 
