@@ -223,7 +223,7 @@ module.controller('MapController', function($scope, GoogleMap, socket){
 
 	      	var infowindow = new google.maps.InfoWindow({
 	        	  content: info,
-	        	  maxWidth: 350
+	        	  maxWidth: 300
 	      	});
 	      	google.maps.event.addListener(marker, 'click', function(){
 	        	infowindow.open(GoogleMap, marker);
