@@ -16,11 +16,11 @@ var clientNumber = 0;
 
 var twit_pipe_live = null;
 var twitter_api = 
-	new Twitter({
-		consumer_key:    'lq28gDTCT1RC49i73uG3hGjzp',
-		consumer_secret: 'dC2pvHoxChsQaVHw80rYUzsaip0TzBcIYKXSAqcFTVjIzVl8Ne',
-		access_token:    	'787308845890756608-Oj4gY2DxhXvX3lKv76nLMykGHnkBkuV',
-		access_token_secret:'EMTGKB3J6NrHpkXq13Zg96B6rkNUZPuIHkgkGKAEbRfdX'
+new Twitter({
+	consumer_key:    'lq28gDTCT1RC49i73uG3hGjzp',
+	consumer_secret: 'dC2pvHoxChsQaVHw80rYUzsaip0TzBcIYKXSAqcFTVjIzVl8Ne',
+	access_token:    	'787308845890756608-Oj4gY2DxhXvX3lKv76nLMykGHnkBkuV',
+	access_token_secret:'EMTGKB3J6NrHpkXq13Zg96B6rkNUZPuIHkgkGKAEbRfdX'
 });
 
 var SetupSocket_mm = function(){
@@ -70,8 +70,8 @@ var Appli_mm = function(){
 var self = this;
 
 self.Initialize = function(){
-	self.ip        = ip;
-    self.port      = port;
+self.ip   = ip;
+self.port = port;
 
 var appli_mm = express_app();
 appli_mm.use(express_app.static(__dirname + '/fronted'));
