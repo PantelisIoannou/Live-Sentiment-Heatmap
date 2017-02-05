@@ -1,15 +1,15 @@
 //MoodTrack
 
-var Twitter = require('twit');
-var express_app = require('express');
-var http_app = require('http');
-var socketio_app = require('socket.io');
-var sentiment_app = require('sentiment');
-port= process.env.PORT || 8080;
-ip = process.env.IP || 'localhost';
+var Twitter = require('twit'); //twit module
+var express_app = require('express'); // express module
+var http_app = require('http'); // http module
+var socketio_app = require('socket.io'); // socket.io module
+var sentiment_app = require('sentiment'); // sentiment module
+port= process.env.PORT || 8080; // server port
+ip = process.env.IP || 'localhost'; // application ip adress
 
 
-var getTweets = function(server){
+var getTweets = function(server){ // function,which connects to Twitter Streaming API
 var self = this;
 var io = socketio_app(server);
 var clientNumber = 0;
@@ -17,26 +17,26 @@ var clientNumber = 0;
 var twit_pipe_live = null;
 var twitter_api = 
 new Twitter({
-	consumer_key:    'lq28gDTCT1RC49i73uG3hGjzp',
-	consumer_secret: 'dC2pvHoxChsQaVHw80rYUzsaip0TzBcIYKXSAqcFTVjIzVl8Ne',
-	access_token:    	'787308845890756608-Oj4gY2DxhXvX3lKv76nLMykGHnkBkuV',
-	access_token_secret:'EMTGKB3J6NrHpkXq13Zg96B6rkNUZPuIHkgkGKAEbRfdX'
+	consumer_key:    'lq28gDTCT1RC49i73uG3hGjzp', //  From Twitter Developers Site
+	consumer_secret: 'dC2pvHoxChsQaVHw80rYUzsaip0TzBcIYKXSAqcFTVjIzVl8Ne', // From Twitter Developers Site
+	access_token:    	'787308845890756608-Oj4gY2DxhXvX3lKv76nLMykGHnkBkuV', // From Twitter Developers Site
+	access_token_secret:'EMTGKB3J6NrHpkXq13Zg96B6rkNUZPuIHkgkGKAEbRfdX' // From Twitter Developers Site
 });
 
-var SetupSocket_mm = function(){
+var SetupSocket_mm = function(){ // Socket between server and fronted
 io.on('connection', function (sock_listen) {
-console.log(new Date() + ' - A new client is connected.');
+console.log(new Date() + ' - A new client is connected.'); // print on cmd
 if(twit_pipe_live !== null && clientNumber === 0){
 	twit_pipe_live.start();
 }
 clientNumber ++;
 sock_listen.emit("connected");
 
-sock_listen.on('start-streaming', function() {
+sock_listen.on('start-streaming', function() { // show new tweet on map
 if(twit_pipe_live === null)
 	SetupCallback(sock_listen);
 });
-sock_listen.on('disconnect', function() {
+sock_listen.on('disconnect', function() { //when a client has disconnected
 console.log(new Date() + ' - Disconnected client');
 clientNumber --;
 if(clientNumber < 1){
