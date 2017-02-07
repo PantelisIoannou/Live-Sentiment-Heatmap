@@ -13,10 +13,8 @@ callback.apply(socket, args);
 },
 emit: function (eventName, data, callback) {
 socket.emit(eventName, data, function () {
-$rootScope.$apply(function () {
-if (callback) {
+$rootScope.$apply(function () { if (callback) 
 	callback.apply(socket, data);
-}
 });
 })
 }
@@ -157,16 +155,16 @@ module.factory('GoogleMap', function(){
 
 module.controller('MapController', function($scope, GoogleMap, socket){
 var searchkey = null;
-var label = [];
+var tag = [];
 $scope.showboundMessa = false;
 $scope.searchkey = null;
 $scope.buttonFinish = 'Stop';
 
 $scope.RestartBtnClick = function(){
-for (var i = 0; i < label.length; i++) {
-    label[i].setMap(null);
+for (var i = 0; i < tag.length; i++) {
+    tag[i].setMap(null);
 }
-label = [];
+tag = [];
 searchkey = $scope.searchkey.trim();
 }
 
@@ -186,13 +184,13 @@ if($scope.buttonFinish === 'Stop' &&
 	(!searchkey || searchkey.length === 0 
 	|| tweet.text.toLowerCase().indexOf(searchkey.toLowerCase()) > -1))
 {
-var icon = null;
+var emo = null;
 if(tweet.sentiment.score < 0)
-	icon = '/icon/negativemoticon.png';
+	emo = '/emo/negativemoticon.png';
 if(tweet.sentiment.score == 0)
-	icon = '/icon/neutralemoticon.png';
+	emo = '/emo/neutralemoticon.png';
 if(tweet.sentiment.score > 0)
-	icon = '/icon/positivemoticon.png';
+	emo = '/emo/positivemoticon.png';
 			
 var marker = new google.maps.Marker({
 	map: GoogleMap,
@@ -200,16 +198,16 @@ var marker = new google.maps.Marker({
 	position: new google.maps.LatLng(tweet.coordinates.coordinates[1], tweet.coordinates.coordinates[0]),
 	draggable: false,
 	animation: google.maps.Animation.DROP,
-	icon: icon
+	icon: emo
 }); 
 marker.setMap(GoogleMap);
-label.push(marker);
+tag.push(marker);
 
 var info = '<div class="row text-center tweet-info-window">'
-+	'<div class="col-md-2 text-center">' 
++		'<div class="col-md-2 text-center">' 
 +		'<img class="img-responsive" src=' + tweet.user.profile_image_url + '></img>'
-+	'</div>'
-+	'<div class="col-md-10 text-left">' 
++		'</div>'
++		'<div class="col-md-10 text-left">' 
 +		'<p>' + '@' + tweet.user.name + '</p>'
 + 		'<p><strong>' + tweet.text + '</strong></p>'
 + 		'<p>' + tweet.created_at;
@@ -220,12 +218,12 @@ info += '<br>'
 }
 info += '</p></div></div>';
 
-var infowindow = new google.maps.InfoWindow({
+var info = new google.maps.InfoWindow({
 	content: info,
 	maxWidth: 300
 });
 google.maps.event.addListener(marker, 'click', function(){
-infowindow.open(GoogleMap, marker);
+info.open(GoogleMap, marker);
 });
 }
 });

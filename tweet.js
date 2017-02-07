@@ -8,7 +8,6 @@ var sentiment_app = require('sentiment'); // sentiment module
 port= process.env.PORT || 8080; // server port
 ip = process.env.IP || 'localhost'; // application ip adress
 
-
 var getTweets = function(server){ // function,which connects to Twitter Streaming API
 var self = this;
 var io = socketio_app(server);
@@ -41,11 +40,7 @@ console.log(new Date() + ' - Disconnected client');
 clientNumber --;
 if(clientNumber < 1){
 	twit_pipe_live.stop();
-	console.log(new Date() + ' - All clients are disconnected.');
-}
-});
-});
-}
+	console.log(new Date() + ' - All clients are disconnected.'); } }); }); }
 
 SetupCallback = function(sock_listen){
 twit_pipe_live = twitter_api.stream(
@@ -57,16 +52,12 @@ twit_pipe_live.on('tweet', function(tweet) {
 if (tweet.coordinates && tweet.coordinates !== null){
 tweet.sentiment = sentiment_app(tweet.text);
 sock_listen.broadcast.emit("new-tweet", tweet);
-sock_listen.emit('new-tweet', tweet);
-}});
+sock_listen.emit('new-tweet', tweet); }});
 }
 self.StartService_Thesis = function(){
-SetupSocket_mm();
-}
-}
+SetupSocket_mm(); } }
 
 var Appli_mm = function(){
-	
 var self = this;
 
 self.Initialize = function(){
@@ -76,20 +67,14 @@ self.port = port;
 var appli_mm = express_app();
 appli_mm.use(express_app.static(__dirname + '/fronted'));
 self.server = http_app.Server(appli_mm);
-
-startTwittPipe();
-};
+startTwittPipe(); }
 
 var startTwittPipe = function(){
 var twitterService = new getTweets(self.server);	
-twitterService.StartService_Thesis();
-};
+twitterService.StartService_Thesis(); }
 
 self.Start = function(){
-self.server.listen(self.port, self.ip, function() {   
-});
-};
-}
+self.server.listen(self.port, self.ip, function() { } ); } }
 
 var appli_mm = new Appli_mm();
 appli_mm.Initialize();
