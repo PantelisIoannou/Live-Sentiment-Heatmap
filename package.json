@@ -13,6 +13,6 @@
     "express": "*",
     "twit": "*",
     "socket.io": "*",
-    "sentiment": "*"
+    "sentiment": "^1.0.1"
   }
 }
