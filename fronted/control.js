@@ -8,6 +8,7 @@ socket.on(eventName, function () {
 var args = arguments;
 $rootScope.$apply(function () {
 callback.apply(socket, args);
+console.log("Inside module.factory");
 });
 });
 },
@@ -174,7 +175,7 @@ if($scope.buttonFinish === 'Stop')
 else
 	$scope.buttonFinish = 'Stop';
 }
-
+console.log("Inside module.mapcontroller");
 socket.on('connected', function(){
 	socket.emit('start-streaming');
 });

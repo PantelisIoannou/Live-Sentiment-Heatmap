@@ -1,18 +1,19 @@
 //MoodTrack
-
+var express = require('express'); // express module
 var Twitter = require('twit'); //twit module
-var express_app = require('express'); // express module
-var http_app = require('http'); // http module
-var socketio_app = require('socket.io'); // socket.io module
+var http = require('http'); // http module
+var socketio = require('socket.io'); // socket.io module
 var sentiment_app = require('sentiment'); // sentiment module
-port= process.env.PORT || 8080; // server port
-ip = process.env.IP || 'localhost'; // application ip adress
+port= process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000; // server port
+ip = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0' // application ip adress
+
+
 
 var getTweets = function(server){ // function,which connects to Twitter Streaming API
 var self = this;
-var io = socketio_app(server);
+var io = socketio(server);
 var clientNumber = 0;
-
+console.log("Inside getTweets");
 var twit_pipe_live = null;
 var twitter_api = 
 new Twitter({
@@ -24,9 +25,10 @@ new Twitter({
 
 var SetupSocket_mm = function(){ // Socket between server and fronted
 io.on('connection', function (sock_listen) {
-console.log(new Date() + ' - A new client is connected.'); // print on cmd
+console.log('A new client is connected.'); // print on cmd
 if(twit_pipe_live !== null && clientNumber === 0){
 	twit_pipe_live.start();
+	console.log("Inside twit_pipe_live");
 }
 clientNumber ++;
 sock_listen.emit("connected");
@@ -36,21 +38,22 @@ if(twit_pipe_live === null)
 	SetupCallback(sock_listen);
 });
 sock_listen.on('disconnect', function() { //when a client has disconnected
-console.log(new Date() + ' - Disconnected client');
 clientNumber --;
 if(clientNumber < 1){
 	twit_pipe_live.stop();
-	console.log(new Date() + ' - All clients are disconnected.'); } }); }); }
+	 } }); }); }
 
 SetupCallback = function(sock_listen){
+console.log("Inside filter");
 twit_pipe_live = twitter_api.stream(
 'statuses/filter', 
 {'locations':'-180,-90,180,90', 'language':'en'});
-
+count = null;
 twit_pipe_live.on('tweet', function(tweet) {
-//console.log(new Date() + ' - Received new tweet.');
 if (tweet.coordinates && tweet.coordinates !== null){
 tweet.sentiment = sentiment_app(tweet.text);
+count++;
+console.log(count);
 sock_listen.broadcast.emit("new-tweet", tweet);
 sock_listen.emit('new-tweet', tweet); }});
 }
@@ -64,13 +67,15 @@ self.Initialize = function(){
 self.ip   = ip;
 self.port = port;
 
-var appli_mm = express_app();
-appli_mm.use(express_app.static(__dirname + '/fronted'));
-self.server = http_app.Server(appli_mm);
+var appli_mm = express();
+appli_mm.use(express.static(__dirname + '/fronted'));
+console.log("Inside fronted");
+self.server = http.Server(appli_mm);
 startTwittPipe(); }
 
 var startTwittPipe = function(){
 var twitterService = new getTweets(self.server);	
+console.log("Inside twitterService");
 twitterService.StartService_Thesis(); }
 
 self.Start = function(){
