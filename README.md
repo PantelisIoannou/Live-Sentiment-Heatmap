@@ -33,6 +33,6 @@ Deploying
 
 **Heroku**
 
-You can deploy to Heroku via [Git](https://devcenter.heroku.com/articles/git) with the [Heroku toolbelt](https://toolbelt.heroku.com/).
+You can deploy to Heroku with mutliple ways.My way and the most easy i think is to make a new app on heroku platform and then deploy it with your Github profile.
 
 
