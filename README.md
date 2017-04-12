@@ -35,6 +35,6 @@ Deploying
 
 You can deploy to Heroku with mutliple ways.My way and the most easy i think is to make a new app on heroku platform and then deploy it with your Github profile.See the pictures below:
 
-![](https://github.com/PantelisIoannou/images/blob/master/MyNews1.png) _
+![](https://github.com/PantelisIoannou/images/blob/master/Deploy1.PNG) _
 
 
