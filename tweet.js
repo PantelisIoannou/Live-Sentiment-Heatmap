@@ -17,10 +17,10 @@ console.log("Inside getTweets");
 var twit_pipe_live = null;
 var twitter_api = 
 new Twitter({
-	consumer_key:    'lq28gDTCT1RC49i73uG3hGjzp', //  From Twitter Developers Site
-	consumer_secret: 'dC2pvHoxChsQaVHw80rYUzsaip0TzBcIYKXSAqcFTVjIzVl8Ne', // From Twitter Developers Site
-	access_token:    	'787308845890756608-Oj4gY2DxhXvX3lKv76nLMykGHnkBkuV', // From Twitter Developers Site
-	access_token_secret:'EMTGKB3J6NrHpkXq13Zg96B6rkNUZPuIHkgkGKAEbRfdX' // From Twitter Developers Site
+	consumer_key:    '***************************', //  From Twitter Developers Site-<<<<INSERT HERE>>>>
+	consumer_secret: '***************************', // From Twitter Developers Site-<<<<<INSERT HERE>>>>
+	access_token:    	'***************************************', // From Twitter Developers Site-<<<<INSERT HERE>>>>
+	access_token_secret:'*********************************************' // From Twitter Developers Site-<<<<INSERT HERE>>>>
 });
 
 var SetupSocket_mm = function(){ // Socket between server and fronted
