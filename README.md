@@ -14,6 +14,10 @@ Clone GitHub repo:
 ```
 https://github.com/PantelisIoannou/MoodTrack
 ```
-In the file tweets.js fill your Twitter Credentials.(You can have them for free by making a new app on Twitter Dev Site).
+Insert in the file Tweets.js your personal credentials Twitter's credentials.(You can have them for free by making a new app on Twitter Dev Site).
 
 Install node module dependencies:
+
+```
+npm install
+```
