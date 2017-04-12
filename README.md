@@ -39,5 +39,5 @@ You can deploy to Heroku with mutliple ways.My way and the most easy i think is 
 
 An then:
 https://github.com/PantelisIoannou/images/blob/master/Deploy2.PNG
-
+![](https://github.com/PantelisIoannou/images/blob/master/Deploy2.PNG) _
 
