@@ -26,3 +26,11 @@ Run application:
 
 ```
 npm start
+```
+Go to [http://localhost:3000](http://localhost:3000) in your browser.
+
+Deploying
+
+**Heroku**
+
+You can deploy to Heroku via [Git](https://devcenter.heroku.com/articles/git) with the [Heroku toolbelt](https://toolbelt.heroku.com/).
