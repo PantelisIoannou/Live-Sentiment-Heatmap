@@ -37,4 +37,4 @@ You can deploy to Heroku via [Git](https://devcenter.heroku.com/articles/git) wi
 
 Before deploying to Heroku, set your environment [config vars](https://devcenter.heroku.com/articles/config-vars) to mirror `config.json`, and set `NODE_ENV` to "production."
 
-[![image](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/twitterdev/twitter-stream-globe/tree/master)
+[![image](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/PantelisIoannou/MoodTrack)
