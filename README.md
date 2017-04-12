@@ -21,3 +21,8 @@ Install node module dependencies:
 ```
 npm install
 ```
+
+Run application:
+
+```
+npm 
