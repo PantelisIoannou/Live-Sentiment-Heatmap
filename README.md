@@ -25,4 +25,4 @@ npm install
 Run application:
 
 ```
-npm 
+npm start
