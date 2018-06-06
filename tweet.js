@@ -17,10 +17,10 @@ console.log("Inside getTweets");
 var twit_pipe_live = null;
 var twitter_api = 
 new Twitter({
-	consumer_key:    '***************************', //  From Twitter Developers Site-<<<<INSERT HERE>>>>
-	consumer_secret: '***************************', // From Twitter Developers Site-<<<<<INSERT HERE>>>>
-	access_token:    	'***************************************', // From Twitter Developers Site-<<<<INSERT HERE>>>>
-	access_token_secret:'*********************************************' // From Twitter Developers Site-<<<<INSERT HERE>>>>
+	consumer_key:    'edumAVB3OCJ2r27sOrvD4mwSG', //  From Twitter Developers Site-<<<<INSERT HERE>>>>
+	consumer_secret: 'fhBC18bsgM57gTZcIWYgReMSVTNNkpOigpzge8q1lJKrnjZz3U', // From Twitter Developers Site-<<<<<INSERT HERE>>>>
+	access_token:    	'787308845890756608-bvbDxYGqanV4IQOID7gnUEHVUMwn91d', // From Twitter Developers Site-<<<<INSERT HERE>>>>
+	access_token_secret: 'FQy6PPI73Ppke4N1sUKS6cQHMmvePQ9f7cz1Msn2rkzIt' // From Twitter Developers Site-<<<<INSERT HERE>>>>
 });
 
 var SetupSocket_mm = function(){ // Socket between server and fronted
